@@ -1,6 +1,6 @@
-# AWS Data Pipeline Starter
+# aws-event-driven-data-platform
 
-## Project Structure
+## Project Structure (prototype)
 
 ```
 aws-data-pipeline-starter/
