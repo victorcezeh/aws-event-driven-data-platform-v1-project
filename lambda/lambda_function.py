@@ -1,7 +1,7 @@
 from src.s3_reader import read_from_s3
 from src.transformer import transform_data
 from src.redshift_writer import write_to_redshift
-from src.logging_config import logging_configuration
+from config.logging_config import logging_configuration
 
 logger = logging_configuration()
 

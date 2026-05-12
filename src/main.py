@@ -1,6 +1,6 @@
 import json
 from config import url, json_file_path, csv_file_path
-from logging_config import logging_configuration
+from config.logging_config import logging_configuration
 from api_fetcher import fetch_api_data
 from transformer import transform_data
 from s3_writer import write_to_s3
