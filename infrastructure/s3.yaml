@@ -1,18 +1,49 @@
-# CloudFormation template version - this is the standard version for all modern templates
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: 2010-09-09
+Description: S3 bucket for the event-driven data platform
 
-# Description of what this CloudFormation stack does
-Description: A CloudFormation template to set up an S3 bucket for API storage
-
-# Resources section - defines all AWS resources to be created
 Resources:
-  # S3 bucket resource for storing API-related file
-  APIS3Bucket:
-    # Resource type - creates an Amazon S3 bucket
-    Type: 'AWS::S3::Bucket'
-    
-    # Configuration properties for the S3 bucket
+  DataPlatformBucket:
+    Type: AWS::S3::Bucket
     Properties:
-      # Name of the bucket (must be globally unique across all AWS accounts)
-      # Note: Bucket names must be DNS-compliant (lowercase, no underscores)
-      BucketName: api-s3-starter-bucket
+      BucketName: data-platform-event-driven-project
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Name
+          Value: data-platform-event-driven-project
+
+  DataPlatformBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DataPlatformBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: DenyNonHTTPS
+            Effect: Deny
+            Principal: "*"
+            Action: s3:*
+            Resource:
+              - !Sub "arn:aws:s3:::${DataPlatformBucket}"
+              - !Sub "arn:aws:s3:::${DataPlatformBucket}/*"
+            Condition:
+              Bool:
+                aws:SecureTransport: false
+
+Outputs:
+  BucketName:
+    Description: S3 Bucket Name
+    Value: !Ref DataPlatformBucket
+    Export:
+      Name: data-platform-bucket-name
+
+  BucketArn:
+    Description: S3 Bucket ARN
+    Value: !GetAtt DataPlatformBucket.Arn
+    Export:
+      Name: data-platform-bucket-arn
