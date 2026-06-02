@@ -1,6 +1,6 @@
 # aws-event-driven-data-platform
 
-## Project Structure (prototype)
+## Project Structure (prototype) -> This project is still in progress while preping for my AWS SAA 😁
 
 ```
 aws-data-pipeline-starter/
