@@ -30,7 +30,7 @@ def main():
 
         logger.info("Local files saved")
 
-    logger.info("Pipeline completed successfully")
+    logger.info("Pipeline completed successfully!")
 
 
 if __name__ == "__main__":
