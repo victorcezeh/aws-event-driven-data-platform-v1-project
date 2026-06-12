@@ -6,7 +6,7 @@
 
 This project started as a way to make my AWS SAA studying concrete. Instead of just reading about S3, VPC, IAM, and CloudFormation, I wanted to actually build something with them. Something that resembles a real production data platform.
 
-The result is an event-driven pipeline that ingests raw JSON from an external API, processes it with AWS Lambda inside a private VPC, and loads the results into a Redshift Serverless data warehouse. Fully provisioned with CloudFormation.
+The result is an event-driven pipeline that ingests raw JSON from an external API, processes it with AWS Lambda inside a private VPC, and loads the results into a Redshift Serverless data warehouse. Fully provisioned with CloudFormation and deployed via GitHub Actions CI/CD.
 
 ## Infrastructure 🔧
 
