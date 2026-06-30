@@ -22,3 +22,11 @@ Each stack is purpose-built and independently deployable via `main_stack.yaml`.
 | `redshift.yaml` | 🏭 Redshift Serverless in private subnet |
 | `monitoring.yaml` | 📊 CloudWatch alarms, log groups, SNS email alerts |
 | `main_stack.yaml` | 🎯 Nested stack orchestrator |
+
+More Ideas to add to the documentation:
+- Problem: What problem does the platform solve?
+- Architecture: Why is each component there?
+- Implementation: Show the code and infrastructure.
+- Trade-offs: Explain why these choices were made.
+- Future improvements: Show awareness of what could be better either on this project or another
+- Show debugging stories and failures in the repo.

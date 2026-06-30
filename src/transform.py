@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 def transform_data(api_data):
     if not api_data:
-        logger.warning("No data to transform")
+        logger.warning("No data to transform!")
         return None
 
     df = pd.DataFrame(api_data)
