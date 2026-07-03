@@ -13,7 +13,7 @@ class TestFetchApiData(unittest.TestCase):
     @patch("src.extract.requests.get")
     def test_successful_api_call_returns_json(self, mock_get):
         mock_response = MagicMock()
-        mock_response.response_code = 200
+        mock_response.status_code = 200
         mock_response.json.return_value = [{"id": 1, "name": "Homer Simpson"}]
         mock_get.return_value = mock_response
 
