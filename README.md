@@ -13,7 +13,7 @@ The result is an event-driven pipeline that ingests raw JSON from an external AP
 Each stack is purpose-built and independently deployable via `main_stack.yaml`.
 
 | Stack | What it does |
-|-------|-------------|
+|---|---|
 | `vpc.yaml` | 🌐 Private VPC, subnets, route tables, VPC endpoints |
 | `iam_role.yaml` | 🔐 Least-privilege IAM roles for Lambda and Redshift |
 | `s3.yaml` | 🪣 S3 bucket with versioning, HTTPS enforcement, event trigger |
@@ -23,10 +23,9 @@ Each stack is purpose-built and independently deployable via `main_stack.yaml`.
 | `monitoring.yaml` | 📊 CloudWatch alarms, log groups, SNS email alerts |
 | `main_stack.yaml` | 🎯 Nested stack orchestrator |
 
-
 ## Project Structure
 
-\```
+```
 aws-event-driven-data-platform-v1-project/
 ├── .github/
 │   └── workflows/
@@ -72,7 +71,7 @@ aws-event-driven-data-platform-v1-project/
 ├── pipeline.py
 ├── README.md
 └── requirements.txt
-\```
+```
 
 More Ideas to add to the documentation:
 - Problem: What problem does the platform solve?
