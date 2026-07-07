@@ -23,6 +23,57 @@ Each stack is purpose-built and independently deployable via `main_stack.yaml`.
 | `monitoring.yaml` | 📊 CloudWatch alarms, log groups, SNS email alerts |
 | `main_stack.yaml` | 🎯 Nested stack orchestrator |
 
+
+## Project Structure
+
+\```
+aws-event-driven-data-platform-v1-project/
+├── .github/
+│   └── workflows/
+│       └── ci.yaml
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   └── logging_config.py
+├── data/
+│   ├── processed/
+│   │   └── .gitkeep
+│   └── raw/
+│       └── .gitkeep
+├── docs/
+│   └── ARCHITECTURE.md
+├── infrastructure/
+│   ├── iam_role.yaml
+│   ├── lambda.yaml
+│   ├── main_stack.yaml
+│   ├── monitoring.yaml
+│   ├── redshift.yaml
+│   ├── s3.yaml
+│   ├── secrets_manager.yaml
+│   └── vpc.yaml
+├── lambda/
+│   └── handler.py
+├── logs/
+│   └── pipeline.log
+├── src/
+│   ├── __init__.py
+│   ├── extract.py
+│   ├── load_redshift.py
+│   ├── load_s3.py
+│   ├── s3_event_reader.py
+│   └── transform.py
+├── tests/
+│   ├── test_extract.py
+│   ├── test_load_s3.py
+│   └── test_transform.py
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── pipeline.py
+├── README.md
+└── requirements.txt
+\```
+
 More Ideas to add to the documentation:
 - Problem: What problem does the platform solve?
 - Architecture: Why is each component there?

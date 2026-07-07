@@ -1,8 +1,11 @@
 .aws_env
 .env
 __pycache__
-data
-aws-event-driven-data-platform-v1-project-architecture.gif
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+excalidraw-v1.png
 architecture-black-prototype-v1.png
 architecture-white-prototype-v1.png
-excalidraw-v1.png
+aws-event-driven-data-platform-v1-project-architecture.gif

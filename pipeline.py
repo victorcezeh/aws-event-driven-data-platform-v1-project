@@ -1,3 +1,4 @@
+import os
 import json
 from config.settings import get_config
 from config.logging_config import logging_configuration
@@ -23,6 +24,9 @@ def main():
 
     # A local inspection of processed data using pandas
     if df is not None:
+        os.makedirs(os.path.dirname(config["raw_json_file_path"]), exist_ok=True)
+        os.makedirs(os.path.dirname(config["processed_csv_file_path"]), exist_ok=True)
+
         with open(config["raw_json_file_path"], "w") as f:
             json.dump(data, f, indent=2)
 
