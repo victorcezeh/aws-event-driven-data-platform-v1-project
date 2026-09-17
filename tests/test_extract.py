@@ -1,8 +1,10 @@
 import unittest
+from unittest.mock import MagicMock, patch
+
 import requests
-from src.extract import fetch_api_data
+
 from config.settings import get_config
-from unittest.mock import patch, MagicMock
+from src.extract import fetch_api_data
 
 
 class TestFetchApiData(unittest.TestCase):

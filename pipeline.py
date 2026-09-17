@@ -1,10 +1,11 @@
-import os
 import json
-from config.settings import get_config
+import os
+
 from config.logging_config import logging_configuration
+from config.settings import get_config
 from src.extract import fetch_api_data
-from src.transform import transform_data
 from src.load_s3 import load_to_s3
+from src.transform import transform_data
 
 
 def main():

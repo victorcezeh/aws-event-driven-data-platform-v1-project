@@ -1,9 +1,11 @@
 import io
 import json
 import logging
+from datetime import datetime
+
 import boto3
 import psycopg2
-from datetime import datetime
+
 from config.settings import get_config
 
 logger = logging.getLogger(__name__)

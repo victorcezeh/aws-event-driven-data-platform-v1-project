@@ -1,7 +1,9 @@
 import json
 import logging
-import boto3
 from datetime import datetime
+
+import boto3
+
 from config.settings import get_config
 
 config = get_config()
