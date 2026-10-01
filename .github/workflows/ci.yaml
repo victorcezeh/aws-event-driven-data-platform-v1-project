@@ -1,22 +1,44 @@
-name: CI checks
+# Continuous Integration (CI) Workflow — Linting only
+name: Lint and Run Unit Tests
 
+# Triggers: runs on PRs targeting main and direct pushes to main
 on:
   pull_request:
+    branches:
+      - main
     types: [opened, synchronized, reopened]
+  push:
+    branches:
+      - main
 
+# Jobs: defines the work to be done
 jobs:
+
+  # Job name: lint
   lint:
+
+    # Runner: fresh Ubuntu VM provided by GitHub
     runs-on: ubuntu-latest
 
+    # Steps: sequential tasks executed inside the runner
     steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      # Step 1: Clone the repository into the runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Python on the runner
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install black
-        run: pip install black
+      # Step 3: Upgrade pip and install Black
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black
 
-      - name: Run black check
+      # Step 4: Run Black in check mode — fails if any file needs reformatting
+      - name: Run Black lint check
         run: black --check .
