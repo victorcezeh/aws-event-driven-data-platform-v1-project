@@ -1,4 +1,4 @@
-# Continuous Integration (CI) Workflow — Linting only
+# Continuous Integration (CI) Workflow - Linting and Unit Tests
 name: Lint and Run Unit Tests
 
 # Triggers: runs on PRs targeting main and direct pushes to main
@@ -14,8 +14,8 @@ on:
 # Jobs: defines the work to be done
 jobs:
 
-  # Job name: lint
-  lint:
+  # Job name: lint-and-test
+  lint-and-test:
 
     # Runner: fresh Ubuntu VM provided by GitHub
     runs-on: ubuntu-latest
@@ -33,12 +33,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Step 3: Upgrade pip and install Black
+      # Step 3: Upgrade pip and install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install black
+          pip install -r requirements.txt
 
       # Step 4: Run Black in check mode — fails if any file needs reformatting
       - name: Run Black lint check
         run: black --check .
+
+      # Step 5: Run unit tests — only runs if Step 4 passes
+      - name: Run unit tests
+        run: python -m unittest discover -s tests
