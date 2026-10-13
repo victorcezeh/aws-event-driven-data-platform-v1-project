@@ -1,4 +1,4 @@
-# Continuous Integration (CI) Workflow - Linting and Unit Tests
+# Continuous Integration (CI) Workflow - Linting and Unit Testing
 name: Lint and Run Unit Tests
 
 # Triggers: runs on PRs targeting main and direct pushes to main
@@ -40,10 +40,10 @@ jobs:
           pip install black
           pip install -r requirements.txt
 
-      # Step 4: Run Black in check mode — fails if any file needs reformatting
+      # Step 4: Run Black in check mode - fails if any file needs reformatting
       - name: Run Black lint check
         run: black --check .
 
-      # Step 5: Run unit tests — only runs if Step 4 passes
+      # Step 5: Run unit tests - only runs if Step 4 passes
       - name: Run unit tests
         run: python -m unittest discover -s tests
